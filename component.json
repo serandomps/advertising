@@ -1,6 +1,6 @@
 {
-    "name": "autos",
-    "description": "autos",
+    "name": "advertising",
+    "description": "advertising",
     "dependencies": {
         "visionmedia/page.js": "*",
         "serandomps/async": "master",
@@ -10,7 +10,7 @@
         "serandomps/utils": "master",
         "serandomps/uready": "master",
         "serandomps/advertising-home": "master",
-        "serandomps/autos-add": "master",
+        "serandomps/advertising-add": "master",
         "serandomps/autos-details": "master",
         "serandomps/autos-listing-search": "master",
         "serandomps/autos-listing-featured": "master",
