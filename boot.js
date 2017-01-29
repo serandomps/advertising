@@ -79,7 +79,7 @@ page('/vehicles/:id/edit', can('vehicle:update'), function (ctx) {
         .add('advertising-navigation')
         //.add('breadcrumb')
         .area('#middle')
-        .add('advertisements-add', {
+        .add('advertisements-create', {
             id: ctx.params.id
         })
         .render();
@@ -90,7 +90,7 @@ page('/add', can('vehicle:create'), function (ctx) {
         .area('#header')
         .add('advertising-navigation')
         .area('#middle')
-        .add('advertisements-add')
+        .add('advertisements-create')
         .render();
 });
 
