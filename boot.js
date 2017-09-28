@@ -49,25 +49,23 @@ page('/', function (ctx) {
         .render();
 });
 
-page('/vehicles', function (ctx) {
-    layout('two-column-left')
+page('/add', function (ctx) {
+    layout('one-column')
         .area('#header')
-        .add('autos-navigation')
+        .add('advertising-navigation')
         //.add('breadcrumb')
-        .area('#left')
-        .add('vehicles-search', ctx.query)
         .area('#middle')
-        .add('vehicles-find-search', ctx.query)
+        .add('advertisements-create', ctx.query)
         .render();
 });
 
-page('/vehicles/:id', can('vehicle:read'), function (ctx) {
+page('/advertisements/:id', can('advertisements:read'), function (ctx) {
     layout('one-column')
         .area('#header')
-        .add('autos-navigation')
+        .add('advertising-navigation')
         //.add('breadcrumb')
         .area('#middle')
-        .add('vehicles-findone', {
+        .add('advertisements-findone', {
             id: ctx.params.id
         })
         .render();
