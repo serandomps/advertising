@@ -9,7 +9,7 @@ var redirect = serand.redirect;
 var app = serand.boot('advertising');
 var layout = serand.layout(app);
 
-var loginUri = utils.resolve('advertising://auth/oauth');
+var loginUri = utils.resolve('advertising:///auth');
 
 var user;
 
@@ -29,7 +29,7 @@ page('/signin', function (ctx) {
     serand.emit('user', 'login', query.dest || '/');
 });
 
-page('/auth/oauth', function (ctx) {
+page('/auth', function (ctx) {
     var el = $('#content');
     serand.emit('user', 'logged in', {
         username: el.data('username'),
@@ -104,6 +104,7 @@ serand.on('user', 'login', function (path) {
         path: path
     });
     serand.emit('user', 'authenticator', {
+        type: 'serandives',
         location: loginUri
     }, function (err, uri) {
         redirect(uri);
