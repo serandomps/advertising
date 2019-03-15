@@ -4,7 +4,7 @@ var serand = require('serand');
 var utils = require('utils');
 var uready = require('uready');
 var page = serand.page;
-var direct = serand.direct;
+var redirect = serand.redirect;
 
 var app = serand.boot('advertising');
 var layout = serand.layout(app);
@@ -107,7 +107,7 @@ serand.on('user', 'login', function (path) {
         type: 'serandives',
         location: loginUri
     }, function (err, uri) {
-        direct(uri);
+        redirect(uri);
     });
 });
 
@@ -118,12 +118,12 @@ serand.on('user', 'ready', function (usr) {
 serand.on('user', 'logged in', function (usr) {
     user = usr;
     var state = serand.store('state', null);
-    direct(state ? state.path : '/');
+    redirect(state && state.path || '/');
 });
 
 serand.on('user', 'logged out', function (usr) {
     user = null;
-    direct('/');
+    redirect('/');
 });
 
 serand.emit('serand', 'ready');
